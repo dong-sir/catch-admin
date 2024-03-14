@@ -6,6 +6,7 @@ use Catch\CatchAdmin;
 use Catch\Traits\DB\BaseOperate;
 use Catch\Traits\DB\ScopeTrait;
 use Catch\Traits\DB\Trans;
+use Catch\Traits\DB\WithAttributes;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
@@ -16,7 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class LogOperate extends Model
 {
-    use BaseOperate, Trans, ScopeTrait;
+    use WithAttributes,BaseOperate, Trans, ScopeTrait;
 
     protected $table = 'log_operate';
 
