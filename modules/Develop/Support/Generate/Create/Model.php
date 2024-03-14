@@ -130,7 +130,6 @@ use Catch\Traits\DB\BaseOperate;
 use Catch\Traits\DB\ScopeTrait;
 use Catch\Traits\DB\Trans;
 use Illuminate\Database\Eloquent\Model;
-use Catch\Traits\DB\WithAttributes;
 Text;
         } else {
             return <<<Text
@@ -146,7 +145,7 @@ Text;
      */
     protected function getTraits(): string
     {
-        return $this->softDelete ? '' : 'use WithAttributes, BaseOperate, Trans, ScopeTrait;';
+        return $this->softDelete ? '' : 'use BaseOperate, Trans, ScopeTrait;';
     }
 
     /**
