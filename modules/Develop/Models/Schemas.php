@@ -92,14 +92,13 @@ class Schemas extends CatchModel
 
         $columns = [];
 
-        foreach (getTableColumns($schema->name) as $columnString) {
-            $column = DB::connection()->getDoctrineColumn(DB::connection()->getTablePrefix().$schema->name, $columnString);
+        foreach (\Illuminate\Support\Facades\Schema::getColumns($schema->name) as $column) {
             $columns[] = [
-                'name' => $column->getName(),
-                'type' => $column->getType()->getName(),
-                'nullable' => ! $column->getNotnull(),
-                'default' => $column->getDefault(),
-                'comment' => $column->getComment()
+                'name' => $column['name'],
+                'type' => $column['type_name'],
+                'nullable' => $column['nullable'],
+                'default' => $column['default'],
+                'comment' => $column['comment'],
             ];
         }
 
